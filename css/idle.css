@@ -1,0 +1,158 @@
+/* =========================================
+   🌿 Green Gradient Animated Kiosk
+   ========================================= */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(160deg, #2e8b57, #3cb371, #00b37a);
+  color: #fff;
+  min-height: 100vh;
+  text-align: center;
+  font-size: 1.25rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Floating shapes */
+.bg-patterns {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#idleScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.idle-screen .bg-patterns {
+  position: absolute;
+  z-index: 0;
+}
+
+#idleScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+}
+
+#mainScreen {
+  position: relative;
+  z-index: 1;
+}
+
+
+.circle,
+.triangle,
+.star {
+  position: absolute;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.circle {
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+}
+
+.triangle {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.star {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(180deg) scale(1.1);
+  }
+
+  100% {
+    transform: translateY(0) rotate(360deg) scale(1);
+  }
+}
+
+.circle,
+.triangle,
+.star {
+  animation: float linear infinite;
+}
+
+/* Shape Positions */
+.c1 {
+  width: 200px;
+  height: 200px;
+  top: 5%;
+  left: 10%;
+  animation-duration: 14s;
+  animation-delay: 0s;
+}
+
+.c2 {
+  width: 150px;
+  height: 150px;
+  bottom: 10%;
+  right: 15%;
+  animation-duration: 12s;
+  animation-delay: 3s;
+}
+
+.c3 {
+  width: 180px;
+  height: 180px;
+  top: 60%;
+  left: 5%;
+  animation-duration: 16s;
+  animation-delay: 6s;
+}
+
+.t1 {
+  top: 20%;
+  left: 30%;
+  animation-duration: 13s;
+  animation-delay: 2s;
+}
+
+.t2 {
+  bottom: 15%;
+  right: 35%;
+  animation-duration: 15s;
+  animation-delay: 5s;
+}
+
+.s1 {
+  top: 10%;
+  right: 20%;
+  animation-duration: 11s;
+  animation-delay: 1s;
+}
+
+.s2 {
+  bottom: 20%;
+  left: 25%;
+  animation-duration: 17s;
+  animation-delay: 4s;
+}

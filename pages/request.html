@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request</title>
+
+  <link rel="stylesheet" href="../css/idle.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body data-idle="60000">
+  <!-- Background SCREEN -->
+  <div class="bg-patterns">
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <div class="circle c3"></div>
+    <div class="triangle t1"></div>
+    <div class="triangle t2"></div>
+    <div class="star s1"></div>
+    <div class="star s2"></div>
+  </div>
+
+  <!-- Main Dashboard -->
+  <main id="mainScreen" class="text-center p-4">
+    <select id="requestType" class="form-select" required>
+      <option value="">Select request type</option>
+    </select>
+    <div id="dynamicForm"></div>
+  </main>
+
+  <!-- Idle Screen -->
+  <div id="idleScreen" class="idle-screen">
+    <!-- Floating Shapes inside Idle -->
+    <div class="bg-patterns">
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
+      <div class="triangle t1"></div>
+      <div class="triangle t2"></div>
+      <div class="star s1"></div>
+      <div class="star s2"></div>
+    </div>
+
+    <div class="idle-content text-center">
+      <div class="logo mx-auto mb-3">
+        <img src="../img/Barangay logo2.png logo2.png" alt="Barangay Ugong Logo">
+      </div>
+      <h1>Barangay Request Kiosk</h1>
+      <p class="welcome-text">Touch the screen to get started!</p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="../js/IDLE.js"></script>
+  <script src="../js/request.js"></script>
+
+  <!-- Idle Warning -->
+  <div id="idleWarning" class="idle-warning">
+    ⏳ Going idle in <span id="countdown">10</span> seconds…
+    <br>
+    <small>Touch the screen to continue</small>
+  </div>
+</body>
+
+</html>
