@@ -8,6 +8,8 @@
 
   <link rel="stylesheet" href="../css/idle.css">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/request.css">
+
 </head>
 
 <body data-idle="60000">
@@ -24,6 +26,12 @@
 
   <!-- Main Dashboard -->
   <main id="mainScreen" class="text-center p-4">
+    <button type="button" class="btn btn-outline-light btn-lg back-home-btn"
+      onclick="window.location.href='../index.html'">
+      Home
+    </button>
+
+
     <select id="requestType" class="form-select" required>
       <option value="">Select request type</option>
     </select>
