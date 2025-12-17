@@ -25,17 +25,36 @@
   </div>
 
   <!-- Main Dashboard -->
-  <main id="mainScreen" class="text-center p-4">
+  <main id="mainScreen" class="request-layout">
+
+    <!-- BACK TO HOME -->
     <button type="button" class="btn btn-outline-light btn-lg back-home-btn"
       onclick="window.location.href='../index.html'">
       Home
     </button>
 
+    <!-- LEFT: REQUEST TYPES -->
+    <aside class="request-sidebar">
+      <h3 class="sidebar-title">Request Types</h3>
 
-    <select id="requestType" class="form-select" required>
-      <option value="">Select request type</option>
-    </select>
-    <div id="dynamicForm"></div>
+      <!-- We KEEP the select, but hide it (logic depends on it) -->
+      <select id="requestType" hidden>
+        <option value="">Select request type</option>
+      </select>
+
+      <!-- New visual list -->
+      <div id="requestList" class="request-list"></div>
+    </aside>
+
+    <!-- RIGHT: FORM -->
+    <section class="request-content">
+      <h2 id="formTitle" class="form-title">
+        Select a request type
+      </h2>
+
+      <div id="dynamicForm"></div>
+    </section>
+
   </main>
 
   <!-- Idle Screen -->

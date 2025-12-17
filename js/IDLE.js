@@ -113,8 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // INITIAL STATE
   // ===============================
   if (idleScreen && mainScreen) {
-    idleScreen.style.display = 'none';
-    mainScreen.style.display = 'block';
+    mainScreen.classList.remove('hidden');
+    idleScreen.classList.add('hidden');
+
   }
 
   resetIdle();

@@ -1,4 +1,4 @@
-@media screen and (orientation: landscape) {
+/* @media screen and (orientation: landscape) {
   body::before {
     content: "📱 Please rotate the kiosk to portrait mode";
     position: fixed;
@@ -14,10 +14,10 @@
   }
 }
 
-/* PORTRAIT KIOSK LAYOUT */
+PORTRAIT KIOSK LAYOUT
 @media screen and (orientation: portrait) {
   main {
-    max-width: 720px;
+    max-width: 1080px;
     margin: 0 auto;
   }
 
@@ -36,7 +36,7 @@
     min-height: 60px;
     font-size: 1.2rem;
   }
-}
+} */
 
 
 /* HOME BTN For all*/

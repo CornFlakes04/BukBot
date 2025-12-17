@@ -1,3 +1,6 @@
+const requestList = document.getElementById('requestList');
+const formTitle = document.getElementById('formTitle');
+
 // ===============================
 // LOAD REQUEST TYPES
 // ===============================
@@ -9,11 +12,32 @@ fetch('../api/get_request_types.php')
     data.forEach(item => {
       if (!item.slug || !item.name) return;
 
+      // Keep select for logic
       const option = document.createElement('option');
-      option.value = item.slug;          // internal key
-      option.textContent = item.name;    // display name
+      option.value = item.slug;
+      option.textContent = item.name;
       select.appendChild(option);
+
+      // New sidebar button
+      const btn = document.createElement('button');
+      btn.textContent = item.name;
+
+      btn.addEventListener('click', () => {
+        // sync with existing logic
+        select.value = item.slug;
+        select.dispatchEvent(new Event('change'));
+
+        // UI state
+        document.querySelectorAll('#requestList button')
+          .forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        formTitle.textContent = item.name;
+      });
+
+      requestList.appendChild(btn);
     });
+
   })
   .catch(err => console.error('Failed to load request types:', err));
 
