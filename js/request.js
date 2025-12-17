@@ -125,9 +125,16 @@ requestSelect.addEventListener('change', () => {
 // OPTIONAL: QR CODE FUNCTION (LATER)
 // ===============================
 function generateQRCode(text) {
-  const qr = new QRCode(document.getElementById('qrContainer'), {
-    text,
+  const container = document.getElementById('qrContainer');
+  if (!container || !text) return;
+
+  // Clear previous QR if any
+  container.innerHTML = '';
+
+  new QRCode(container, {
+    text: text,
     width: 160,
-    height: 160
+    height: 160,
+    correctLevel: QRCode.CorrectLevel.H
   });
 }

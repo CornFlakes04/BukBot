@@ -3,15 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
+  <title>Check Status</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Status</title>
 
-  <link rel="stylesheet" href="../css/idle.css">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/idle.css">
 </head>
 
-<body data-idle="60000">
-  <!-- Background SCREEN -->
+<body data-idle="30000">
+
+  <!-- BACKGROUND -->
   <div class="bg-patterns">
     <div class="circle c1"></div>
     <div class="circle c2"></div>
@@ -22,43 +23,89 @@
     <div class="star s2"></div>
   </div>
 
-  <!-- Main Dashboard -->
+  <!-- BACK TO HOME -->
+  <button type="button" class="btn btn-outline-light btn-lg back-home-btn"
+    onclick="window.location.href='../index.html'">
+    ← Home
+  </button>
+
+  <!-- MAIN SCREEN -->
   <main id="mainScreen" class="text-center p-4">
+
+    <h1 class="mb-4">Check Request Status</h1>
+
+    <div class="mb-4">
+      <input type="text" id="trackingInput" class="form-control form-control-lg text-center"
+        placeholder="Enter Tracking Number" autocomplete="off">
+    </div>
+
+    <button class="btn btn-primary btn-lg w-100" id="checkStatusBtn">
+      Check Status
+    </button>
+
+    <!-- RESULT -->
+    <div id="statusResult" class="mt-4"></div>
 
   </main>
 
-  <!-- Idle Screen -->
+  <!-- IDLE SCREEN -->
   <div id="idleScreen" class="idle-screen">
-    <!-- Floating Shapes inside Idle -->
-    <div class="bg-patterns">
-      <div class="circle c1"></div>
-      <div class="circle c2"></div>
-      <div class="circle c3"></div>
-      <div class="triangle t1"></div>
-      <div class="triangle t2"></div>
-      <div class="star s1"></div>
-      <div class="star s2"></div>
-    </div>
-
     <div class="idle-content text-center">
-      <div class="logo mx-auto mb-3">
-        <img src="../img/Barangay logo2.png logo2.png" alt="Barangay Ugong Logo">
-      </div>
-      <h1>Barangay Request Kiosk</h1>
-      <p class="welcome-text">Touch the screen to get started!</p>
+      <h1>Touch the screen to continue</h1>
     </div>
   </div>
+
+  <!-- WARNING -->
+  <div id="idleWarning" class="idle-warning">
+    ⏳ Going idle in <span id="countdown">10</span> seconds…
+  </div>
+
+
+  <!-- STATUS TEMPLATES -->
+  <template id="tpl-pending">
+    <div class="alert alert-warning text-center">
+      <h3>🕒 Pending</h3>
+      <p>Your request is being processed.</p>
+
+      <div class="text-start mt-3">
+        <p><strong>Tracking:</strong> <span data-field="tracking"></span></p>
+        <p><strong>Request:</strong> <span data-field="type"></span></p>
+        <p><strong>Date:</strong> <span data-field="date"></span></p>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-approved">
+    <div class="alert alert-success text-center">
+      <h3>✅ Approved</h3>
+      <p>Your request is ready for pickup.</p>
+
+      <p class="mt-2">
+        <strong>Tracking:</strong> <span data-field="tracking"></span>
+      </p>
+    </div>
+  </template>
+
+  <template id="tpl-rejected">
+    <div class="alert alert-danger text-center">
+      <h3>❌ Rejected</h3>
+      <p>Please visit the Barangay office for assistance.</p>
+    </div>
+  </template>
+  
+  <template id="tpl-not-found">
+    <div class="alert alert-secondary text-center">
+      <h4>Tracking Number Not Found</h4>
+      <p>Please check your code and try again.</p>
+    </div>
+  </template>
+
+
 
   <!-- JS -->
   <script src="../js/IDLE.js"></script>
-  
-  
-  <!-- Idle Warning -->
-  <div id="idleWarning" class="idle-warning">
-    ⏳ Going idle in <span id="countdown">10</span> seconds…
-    <br>
-    <small>Touch the screen to continue</small>
-  </div>
+  <script src="../js/status.js"></script>
+
 </body>
 
 </html>

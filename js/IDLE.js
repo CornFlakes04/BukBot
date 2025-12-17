@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===============================
   // CONFIG
   // ===============================
-  const DEFAULT_IDLE_TIME = 6000; // 1 minute
+  const DEFAULT_IDLE_TIME = 60000; // 1 minute
   const WARNING_TIME = 10000;      // 10 seconds before idle
 
   const idleTime =
